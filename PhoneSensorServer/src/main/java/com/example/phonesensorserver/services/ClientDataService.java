@@ -1,0 +1,4 @@
+package com.example.phonesensorserver.services;
+
+public interface ClientDataService {
+}
