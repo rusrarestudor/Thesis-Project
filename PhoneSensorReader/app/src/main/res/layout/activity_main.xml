@@ -32,6 +32,54 @@
         android:hint="acc Z VALUES: "
         android:textSize="24sp" />
 
+    <TextView
+        android:id="@+id/textView1gyro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:hint="gyro X VALUES: " />
+
+    <TextView
+        android:id="@+id/textView2gyro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="gyro Y VALUES: "
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView3gyro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="gyro Z VALUES: "
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView1linAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:hint="linAcc X VALUES: " />
+
+    <TextView
+        android:id="@+id/textView2linAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="linAcc Y VALUES: "
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textView3linAcc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="linAcc Z VALUES: "
+        android:textSize="24sp" />
+
     <Button
         android:id="@+id/publish"
         android:layout_width="149dp"
@@ -59,5 +107,22 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textViewStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint=" "
+        android:textSize="24sp" />
+
+    <TextView
+        android:id="@+id/textViewFeedback"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Activity: "
+        android:textSize="24sp" />
+
 
 </LinearLayout>

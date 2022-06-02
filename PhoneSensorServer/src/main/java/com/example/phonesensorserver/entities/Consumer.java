@@ -1,35 +1,51 @@
 package com.example.phonesensorserver.entities;
 
 
-import com.example.phonesensorserver.DTOs.ClientDataDTO;
+import com.example.phonesensorserver.DTOs.AccelerometerDataDTO;
+import com.example.phonesensorserver.DTOs.GyroscopeDataDTO;
+import com.example.phonesensorserver.DTOs.LinearaccDataDTO;
+import com.example.phonesensorserver.services.AccelerometerDataService;
 import com.example.phonesensorserver.services.ClientDataService;
+import com.example.phonesensorserver.services.GyroscopeDataService;
+import com.example.phonesensorserver.services.LinearaccDataService;
 import com.rabbitmq.client.Channel;
 import com.rabbitmq.client.Connection;
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.DeliverCallback;
-import lombok.RequiredArgsConstructor;
 import net.minidev.json.JSONObject;
 import net.minidev.json.parser.JSONParser;
 import net.minidev.json.parser.ParseException;
+import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
+import org.tensorflow.Session;
+import org.tensorflow.Tensor;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
+import java.io.IOException;
+import java.net.Socket;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 
 @Component
 public class Consumer {
-
     private final ClientDataService clientDataService;
+    private final AccelerometerDataService accelerometerDataService;
+    private final GyroscopeDataService gyroscopeDataService;
+    private final LinearaccDataService linearaccDataService;
 
     @Autowired
-    public Consumer(ClientDataService clientDataService) {
+    public Consumer(ClientDataService clientDataService, AccelerometerDataService accelerometerDataService, GyroscopeDataService gyroscopeDataService, LinearaccDataService linearaccDataService) throws IOException {
 
         this.clientDataService = clientDataService;
+        this.accelerometerDataService = accelerometerDataService;
+        this.gyroscopeDataService = gyroscopeDataService;
+        this.linearaccDataService = linearaccDataService;
     }
 
-    @Scheduled(fixedRate = 10000)
+    @Scheduled(fixedRate = 1000)
     void listener() throws Exception {
 
         String url = System.getenv("CLOUDAMQP_URL");
@@ -43,39 +59,48 @@ public class Consumer {
         Channel channel = connection.createChannel();
 
         channel.queueDeclare("dataPhoneQueue", true, false, false, null);
-        System.out.println(" [*] Waiting for messages. To exit press CTRL+C");
+        System.out.print("zZz... ");
 
         DeliverCallback deliverCallback = (consumerTag, delivery) -> {
             String message = new String(delivery.getBody(), StandardCharsets.UTF_8);
-
-            JSONParser parser = new JSONParser();
             try {
-                JSONObject json = (JSONObject) parser.parse(message);
+                // websocket send data to HAR processor
+                try {
 
-                LocalDateTime dateTime = LocalDateTime.now();
+                    Socket socket = new Socket("localhost", 2004);
 
-                float accX = 0, accY = 0, accZ = 0;
-                accX = Float.parseFloat(json.getAsString("X:"));
-                accY = Float.parseFloat(json.getAsString("Y:"));
-                accZ = Float.parseFloat(json.getAsString("Z:"));
-                int weight = 0, height = 0;
-                weight = 0;
-                height = 0;
-                String exeType = "";
-                exeType = "";
+                    if(socket.isConnected()) {
+                        if(message.length() > 3) {
+                            if(!message.contains("null")){
+                                DataOutputStream dataOut = new DataOutputStream(socket.getOutputStream());
+                                dataOut.writeUTF(message);
+                                dataOut.flush();
+                            }
+                        }
 
-                //ClientDataDTO clientDataDTO = new ClientDataDTO(accX, accY, accZ, dateTime, weight, height, exeType);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
 
-                System.out.println("<- " + message);
+                System.out.println("<- " + message + "  " + message.length());
 
-
-            } catch (ParseException e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         };
 
         channel.basicConsume("dataPhoneQueue", true, deliverCallback, consumerTag -> { });
         connection.close();
+    }
+
+    private static float[][] predict(Session sess, Tensor inputTensor) {
+        Tensor result = sess.runner()
+                .feed("input", inputTensor)
+                .fetch("not_activated_output").run().get(0);
+        float[][] outputBuffer = new float[1][3];
+        result.copyTo(outputBuffer);
+        return outputBuffer;
     }
 }
 
