@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.phonesensorreader">
 
     <application
@@ -18,6 +19,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".HARFragment" />
+        <activity android:name=".HistoryFragment" />
+        <activity android:name=".Last7days" />
+        <activity android:name=".LastMonth" />
+        <activity android:name=".LastYear" />
+
     </application>
     <uses-permission android:name="android.permission.INTERNET"></uses-permission>
 </manifest>

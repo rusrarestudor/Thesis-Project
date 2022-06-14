@@ -5,7 +5,13 @@
       <map>
         <entry key="..\:/UTCN/LICENTA/Project/PhoneSensorReader/app/src/main/res/layout/activity_main.xml" value="0.17831813576494426" />
         <entry key="..\:/Users/Asus/AndroidStudioProjects/PhoneSensorReader/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/User/Desktop/faculta/LICENTA/project/PhoneSensorReader/app/src/main/res/layout/activity_main.xml" value="0.358695652173913" />
+        <entry key="..\:/Users/User/Desktop/faculta/LICENTA/project/PhoneSensorReader/app/src/main/res/layout/activity_days_graph.xml" value="0.30012825994014536" />
+        <entry key="..\:/Users/User/Desktop/faculta/LICENTA/project/PhoneSensorReader/app/src/main/res/layout/activity_graph.xml" value="0.30012825994014536" />
+        <entry key="..\:/Users/User/Desktop/faculta/LICENTA/project/PhoneSensorReader/app/src/main/res/layout/activity_har.xml" value="0.33" />
+        <entry key="..\:/Users/User/Desktop/faculta/LICENTA/project/PhoneSensorReader/app/src/main/res/layout/activity_history.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/faculta/LICENTA/project/PhoneSensorReader/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/User/Desktop/faculta/LICENTA/project/PhoneSensorReader/app/src/main/res/layout/activity_month_graph.xml" value="0.30012825994014536" />
+        <entry key="..\:/Users/User/Desktop/faculta/LICENTA/project/PhoneSensorReader/app/src/main/res/layout/activity_year_graph.xml" value="0.30012825994014536" />
       </map>
     </option>
   </component>

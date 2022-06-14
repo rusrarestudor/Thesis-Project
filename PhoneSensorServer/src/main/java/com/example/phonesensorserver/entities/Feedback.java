@@ -25,4 +25,7 @@ public class Feedback implements Serializable {
 
     @Column(nullable = false)
     private Long durationInSeconds;
+
+    @Column(nullable = false)
+    private Long timeStamp;
 }

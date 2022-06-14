@@ -1,128 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/backkk"
     android:gravity="center"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView1acc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:hint="acc X VALUES: " />
-
-    <TextView
-        android:id="@+id/textView2acc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="acc Y VALUES: "
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/textView3acc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="acc Z VALUES: "
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/textView1gyro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:hint="gyro X VALUES: " />
-
-    <TextView
-        android:id="@+id/textView2gyro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="gyro Y VALUES: "
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/textView3gyro"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="gyro Z VALUES: "
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/textView1linAcc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="24sp"
-        android:hint="linAcc X VALUES: " />
-
-    <TextView
-        android:id="@+id/textView2linAcc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="linAcc Y VALUES: "
-        android:textSize="24sp" />
-
-    <TextView
-        android:id="@+id/textView3linAcc"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="linAcc Z VALUES: "
-        android:textSize="24sp" />
-
-    <Button
-        android:id="@+id/publish"
-        android:layout_width="149dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="#9C3636"
-        android:text="SEND DATA"
-        android:textColorHighlight="#80062F"
-        android:textSize="12sp"
-        android:textStyle="bold|italic"
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="161dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="4dp"
+        android:src="@drawable/utcnlogo"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/stopPublish"
-        android:layout_width="150dp"
-        android:layout_height="54dp"
-        android:backgroundTint="#9C3636"
-        android:text="STOP"
-        android:textColor="#25052C"
+        android:id="@+id/goToHARActivity"
+        android:layout_width="258dp"
+        android:layout_height="116dp"
+        android:layout_marginBottom="168dp"
+        android:backgroundTint="#DC5353"
+        android:text="ACTIVITY RECOGNITION"
+        android:textColor="#000000"
         android:textColorHighlight="#80062F"
-        android:textSize="12sp"
+        android:textSize="22sp"
         android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <TextView
-        android:id="@+id/textViewStatus"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint=" "
-        android:textSize="24sp" />
+    <Button
+        android:id="@+id/goToHistoryActivity"
+        android:layout_width="258dp"
+        android:layout_height="116dp"
+        android:layout_marginBottom="40dp"
+        android:backgroundTint="#FFDC5353"
+        android:text="SMOKING  HISTORY"
+        android:textColor="#000000"
+        android:textColorHighlight="#80062F"
+        android:textSize="22sp"
+        android:textStyle="bold|italic"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="MissingConstraints" />
 
-    <TextView
-        android:id="@+id/textViewFeedback"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:hint="Activity: "
-        android:textSize="24sp" />
 
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
