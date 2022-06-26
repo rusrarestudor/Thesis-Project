@@ -11,6 +11,8 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.os.Bundle;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 
 import com.rabbitmq.client.Channel;
@@ -28,6 +30,9 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
         setContentView(R.layout.activity_main);
 
         goToHAR = (Button)findViewById(R.id.goToHARActivity);

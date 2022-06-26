@@ -12,16 +12,16 @@
 
     <com.github.mikephil.charting.charts.BarChart
         android:id="@+id/bargraph1"
-        android:layout_width="312dp"
-        android:layout_height="331dp"
+        android:layout_width="298dp"
+        android:layout_height="259dp"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="49dp"
-        tools:layout_editor_absoluteY="133dp" />
+        tools:layout_editor_absoluteX="23dp"
+        tools:layout_editor_absoluteY="49dp" />
 
     <Button
         android:id="@+id/goToMain1"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="79dp"
+        android:layout_height="55dp"
         android:layout_marginBottom="4dp"
         android:backgroundTint="#63000000"
         android:textColor="#FF0000"

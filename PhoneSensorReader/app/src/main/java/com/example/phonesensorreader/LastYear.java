@@ -1,6 +1,7 @@
 package com.example.phonesensorreader;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +13,7 @@ import com.github.mikephil.charting.data.BarData;
 import com.github.mikephil.charting.data.BarDataSet;
 import com.github.mikephil.charting.data.BarEntry;
 import com.github.mikephil.charting.interfaces.datasets.IBarDataSet;
+import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -37,9 +39,11 @@ public class LastYear extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_year_graph);
 
+
+
           barChart = (BarChart) findViewById(R.id.bargraph3);
 
-        goToMain = findViewById(R.id.goToMain2);
+        goToMain = findViewById(R.id.goToMain3);
         goToMain.setOnClickListener(
                 new View.OnClickListener() {
                     @Override
@@ -49,6 +53,32 @@ public class LastYear extends AppCompatActivity {
                     }
                 }
         );
+
+        BarChart barChart = findViewById(R.id.bargraph2);
+
+        ArrayList <BarEntry> barEntries = new ArrayList<>();
+        barEntries.add(new BarEntry(0f, 151f));
+        barEntries.add(new BarEntry(1f, 162f));
+        barEntries.add(new BarEntry(2f, 164f));
+        barEntries.add(new BarEntry(3f, 170f));
+        barEntries.add(new BarEntry(4f, 85f));
+        barEntries.add(new BarEntry(5f, 98f));
+        barEntries.add(new BarEntry(6f, 140f));
+        barEntries.add(new BarEntry(7f, 160f));
+        barEntries.add(new BarEntry(8f, 190f));
+        barEntries.add(new BarEntry(9f, 100f));
+
+        BarDataSet barDataSet = new BarDataSet(barEntries, "dates");
+        barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);
+        barDataSet.setValueTextColor(Color.BLACK);
+        barDataSet.setValueTextSize(16f);
+
+        BarData barData = new BarData(barDataSet);
+
+        barChart.setFitBars(true);
+        barChart.setData(barData);
+        barChart.getDescription().setText("bar");
+
     }
 
     public void createMyBarGraph(){

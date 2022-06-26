@@ -85,6 +85,7 @@ public class HARFragment extends AppCompatActivity implements SensorEventListene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_har);
 
+
         ax=new ArrayList<>(); ay=new ArrayList<>(); az=new ArrayList<>();
 /*        gx=new ArrayList<>(); gy=new ArrayList<>(); gz=new ArrayList<>();
         lx=new ArrayList<>(); ly=new ArrayList<>(); lz=new ArrayList<>();*/
@@ -125,7 +126,7 @@ public class HARFragment extends AppCompatActivity implements SensorEventListene
                 }
         );
 
-        @SuppressLint("HandlerLeak") final Handler incomingMessageHandler = new Handler() {
+       /* @SuppressLint("HandlerLeak") final Handler incomingMessageHandler = new Handler() {
             @Override
             public void handleMessage(Message msg) {
                 String message = msg.getData().getString("msg");
@@ -136,7 +137,7 @@ public class HARFragment extends AppCompatActivity implements SensorEventListene
 
             }
         };
-        //subscribe(incomingMessageHandler);
+        subscribe(incomingMessageHandler);*/
 
     }
 

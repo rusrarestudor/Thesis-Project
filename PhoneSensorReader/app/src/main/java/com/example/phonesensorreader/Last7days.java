@@ -32,6 +32,8 @@ public class Last7days extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_days_graph);
 
+
+
         goToMain = findViewById(R.id.goToMain1);
         goToMain.setOnClickListener(
                 new View.OnClickListener() {
@@ -46,13 +48,13 @@ public class Last7days extends AppCompatActivity {
         BarChart barChart = findViewById(R.id.bargraph1);
 
         ArrayList <BarEntry> barEntries = new ArrayList<>();
-        barEntries.add(new BarEntry(0f, 44f));
-        barEntries.add(new BarEntry(1f, 88f));
-        barEntries.add(new BarEntry(2f, 41f));
-        barEntries.add(new BarEntry(3f, 85f));
-        barEntries.add(new BarEntry(4f, 96f));
-        barEntries.add(new BarEntry(5f, 25f));
-        barEntries.add(new BarEntry(6f, 10f));
+        barEntries.add(new BarEntry(0f, 6f));
+        barEntries.add(new BarEntry(1f, 4f));
+        barEntries.add(new BarEntry(2f, 8f));
+        barEntries.add(new BarEntry(3f, 5f));
+        barEntries.add(new BarEntry(4f, 12f));
+        barEntries.add(new BarEntry(5f, 3f));
+        barEntries.add(new BarEntry(6f, 9f));
 
         BarDataSet barDataSet = new BarDataSet(barEntries, "dates");
         barDataSet.setColors(ColorTemplate.MATERIAL_COLORS);

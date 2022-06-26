@@ -37,6 +37,8 @@ public class HistoryFragment extends AppCompatActivity implements SensorEventLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
+
+
         goToLast7days = findViewById(R.id.goToLast7Days);
         goToLast7days.setOnClickListener(
                 new View.OnClickListener() {

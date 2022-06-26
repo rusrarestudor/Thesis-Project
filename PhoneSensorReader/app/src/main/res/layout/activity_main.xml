@@ -22,9 +22,9 @@
 
     <Button
         android:id="@+id/goToHARActivity"
-        android:layout_width="258dp"
-        android:layout_height="116dp"
-        android:layout_marginBottom="168dp"
+        android:layout_width="248dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="216dp"
         android:backgroundTint="#DC5353"
         android:text="ACTIVITY RECOGNITION"
         android:textColor="#000000"
@@ -38,9 +38,9 @@
 
     <Button
         android:id="@+id/goToHistoryActivity"
-        android:layout_width="258dp"
-        android:layout_height="116dp"
-        android:layout_marginBottom="40dp"
+        android:layout_width="248dp"
+        android:layout_height="90dp"
+        android:layout_marginBottom="72dp"
         android:backgroundTint="#FFDC5353"
         android:text="SMOKING  HISTORY"
         android:textColor="#000000"

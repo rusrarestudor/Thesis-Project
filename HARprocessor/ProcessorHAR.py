@@ -44,6 +44,23 @@ def process_input_list(input_list_from_socket):
         r_3d = np.expand_dims(r_array, axis=0)
         return r_3d
 
+def process_input_list_forAccOnly(input_list_from_socket):
+    # from string to list of floats
+    input_list_from_socket = input_list_from_socket[1:len(input_list_from_socket) - 1]
+    input_list_from_socket = input_list_from_socket.split(', ')
+    input_list_from_socket = list(map(float, input_list_from_socket))
+
+    if len(input_list_from_socket) != 300:
+        print('Input size must be 300, but received ', len(input_list_from_socket), "instead! ")
+        return []
+    else:
+        accX = input_list_from_socket[:100]
+        accY = input_list_from_socket[100:200]
+        accZ = input_list_from_socket[200:300]
+        res_list = list(zip(accX, accY, accZ))
+        r_array = np.asarray(res_list)
+        r_3d = np.expand_dims(r_array, axis=0)
+        return r_3d
 
 def config_database():
     db_name = "PhoneSensorData"
@@ -108,7 +125,7 @@ while True:
     msg_from_server = conn.recv(int.from_bytes(conn.recv(2), byteorder='big')).decode("UTF-8")
 
     # create array of 3 dimensions to match model input type
-    inputArray3d = process_input_list(msg_from_server)
+    inputArray3d = process_input_list_forAccOnly(msg_from_server)
 
     # use model to predict the input received
     predictions = model.predict(np.asarray(inputArray3d))

@@ -11,8 +11,8 @@
 
     <Button
         android:id="@+id/publish"
-        android:layout_width="239dp"
-        android:layout_height="54dp"
+        android:layout_width="149dp"
+        android:layout_height="55dp"
         android:layout_marginTop="16dp"
         android:backgroundTint="#5B52DF06"
         android:text="@string/startR"
@@ -21,7 +21,6 @@
         android:textSize="22sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -29,21 +28,24 @@
         android:id="@+id/textViewStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginBottom="232dp"
         android:gravity="center"
         android:hint="Current Activity:"
+        android:text="Current Activity:"
         android:textColor="#000000"
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.231"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.243"
         tools:ignore="MissingConstraints" />
 
     <TextView
         android:id="@+id/textViewFeedback"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="136dp"
+        android:layout_marginBottom="172dp"
         android:gravity="center"
         android:hint="Result: "
         android:text="Result:"
@@ -51,15 +53,15 @@
         android:textSize="22sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.212"
+        app:layout_constraintHorizontal_bias="0.177"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/stopPublish"
-        android:layout_width="239dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="128dp"
+        android:layout_width="149dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="148dp"
         android:backgroundTint="#54DD0E0E"
         android:text="STOP"
         android:textColor="#25052C"
@@ -67,22 +69,20 @@
         android:textSize="22sp"
         android:textStyle="bold|italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/backButton"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
-        android:layout_marginBottom="4dp"
+        android:layout_width="79dp"
+        android:layout_height="55dp"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="#63000000"
         android:textColor="#FF0000"
         android:textSize="11sp"
         android:textStyle="bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 

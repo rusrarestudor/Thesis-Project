@@ -47,7 +47,7 @@ public class LastMonth extends AppCompatActivity {
                 }
         );
 
-        BarChart barChart = findViewById(R.id.bargraph1);
+        BarChart barChart = findViewById(R.id.bargraph3);
 
         ArrayList <BarEntry> barEntries = new ArrayList<>();
         barEntries.add(new BarEntry(0f, 44f));
