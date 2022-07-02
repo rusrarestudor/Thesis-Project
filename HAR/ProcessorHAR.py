@@ -16,7 +16,23 @@ def config_web_socket():
         soc.bind((host, port))
         soc.listen(5)
         return soc
+def process_input_list_forAccOnly(input_list_from_socket):
+    # from string to list of floats
+    input_list_from_socket = input_list_from_socket[1:len(input_list_from_socket) - 1]
+    input_list_from_socket = input_list_from_socket.split(', ')
+    input_list_from_socket = list(map(float, input_list_from_socket))
 
+    if len(input_list_from_socket) != 300:
+        print('Input size must be 300, but received ', len(input_list_from_socket), "instead! ")
+        return []
+    else:
+        accX = input_list_from_socket[:100]
+        accY = input_list_from_socket[100:200]
+        accZ = input_list_from_socket[200:300]
+        res_list = list(zip(accX, accY, accZ))
+        r_array = np.asarray(res_list)
+        r_3d = np.expand_dims(r_array, axis=0)
+        return r_3d
 
 def process_input_list(input_list_from_socket):
     # from string to list of floats
@@ -44,23 +60,6 @@ def process_input_list(input_list_from_socket):
         r_3d = np.expand_dims(r_array, axis=0)
         return r_3d
 
-def process_input_list_forAccOnly(input_list_from_socket):
-    # from string to list of floats
-    input_list_from_socket = input_list_from_socket[1:len(input_list_from_socket) - 1]
-    input_list_from_socket = input_list_from_socket.split(', ')
-    input_list_from_socket = list(map(float, input_list_from_socket))
-
-    if len(input_list_from_socket) != 300:
-        print('Input size must be 300, but received ', len(input_list_from_socket), "instead! ")
-        return []
-    else:
-        accX = input_list_from_socket[:100]
-        accY = input_list_from_socket[100:200]
-        accZ = input_list_from_socket[200:300]
-        res_list = list(zip(accX, accY, accZ))
-        r_array = np.asarray(res_list)
-        r_3d = np.expand_dims(r_array, axis=0)
-        return r_3d
 
 def config_database():
     db_name = "PhoneSensorData"
@@ -106,7 +105,7 @@ def most_frequent(list_of_predictions):
 
 ########################################################################################################################
 
-model = keras.models.load_model(r'C:\Users\User\PycharmProjects\pythonProject\licentaHAR\model.h5')
+model = keras.models.load_model(r'C:\UTCN\LICENTA\Project\HAR\HARprocessor\modelNEW3.h5')
 labels = ['SmokeSD', 'SmokeST', 'Eat', 'DrinkSD', 'DrinkST', 'Sit', 'Stand']
 labels.sort()
 
@@ -131,7 +130,7 @@ while True:
     predictions = model.predict(np.asarray(inputArray3d))
     prediction_result = labels[np.argmax(predictions)]
     print(prediction_result)
-    queue_channel.basic_publish(exchange='', routing_key='pdfprocess', body=prediction_result)
+    queue_channel.basic_publish(exchange='', routing_key='dataPhoneQueue2', body=prediction_result)
 
     last_predictions.append(prediction_result)
 
